@@ -17,22 +17,51 @@ spicy_foods = [
 ]
 
 def get_names(spicy_foods):
-    pass
+    names = []
+    for food in spicy_foods:
+        names.append(food['name'])
+    return names
 
 def get_spiciest_foods(spicy_foods):
-    pass
+    spiciest_foods= []
+    for food in spicy_foods:
+        if food['heat_level'] > 5:
+            spiciest_foods.append(food)
+    return spiciest_foods
 
 def print_spicy_foods(spicy_foods):
-    pass
+    for food in spicy_foods:
+        name = food['name']
+        cuisine = food['cuisine']
+        heat_level = food['heat_level']
+        heat_emoji =  '🌶' * heat_level
+        print(f"{name} ({cuisine}) | Heat Level: {heat_emoji}")
 
 def get_spicy_food_by_cuisine(spicy_foods, cuisine):
-    pass
+    for food in spicy_foods:
+        if food['cuisine'] == cuisine:
+            return food
+    return None
 
 def print_spiciest_foods(spicy_foods):
-    pass
+    spiciest_foods = get_spiciest_foods(spicy_foods)
+    for food in spiciest_foods:
+        name = food['name']
+        cuisine = food['cuisine']
+        heat_level = food['heat_level']
+        heat_emoji = '🌶' * heat_level
+        print(f"{name} ({cuisine}) | Heat Level: {heat_emoji}")
 
 def get_average_heat_level(spicy_foods):
-    pass
+    total_heat_level = 0
+    for food in spicy_foods:
+        total_heat_level += food['heat_level']
+    return round(total_heat_level / len(spicy_foods))
 
-def create_spicy_food(spicy_foods, spicy_food):
-    pass
+def create_spicy_food(spicy_foods, new_food):
+    updated_spicy_foods = spicy_foods.copy()
+    updated_spicy_foods.append(new_food)
+    return updated_spicy_foods
+
+
+
